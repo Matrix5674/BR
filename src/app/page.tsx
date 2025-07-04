@@ -1,6 +1,5 @@
 'use client'
 
-import Image from "next/image";
 import { useState } from "react";
 import Nav from "./Nav/Nav";
 import Hero from "./Hero/Hero";
