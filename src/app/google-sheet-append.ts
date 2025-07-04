@@ -2,6 +2,7 @@
 
 import { google } from 'googleapis';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function appendToGoogleSheet(data: any) {
   try {
     const auth = new google.auth.JWT({
