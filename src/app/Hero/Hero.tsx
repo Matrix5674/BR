@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ( { handleEarlyAccessClick } ) => {
           <span className="text-gray-300">Stay informed in 60 seconds.</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-200 mb-8">
-          The verified vertical video news app for Gen Z.
+          The only accurate short-form news app for Gen Z.
         </p>
         <button
           onClick={handleEarlyAccessClick}

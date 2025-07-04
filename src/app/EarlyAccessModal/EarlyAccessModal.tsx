@@ -7,12 +7,14 @@ interface EarlyAccessModalProps {
   handleModalClose: () => void;
   isSubmitted: boolean;
   handleFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
   email: string;
   setEmail: React.Dispatch<React.SetStateAction<string>>;
 }
 
   // Early Access Modal
-  const EarlyAccessModal: React.FC<EarlyAccessModalProps> = ({ isModalOpen, handleFormSubmit, handleModalClose, isSubmitted, email, setEmail}) => {
+  const EarlyAccessModal: React.FC<EarlyAccessModalProps> = ({ isModalOpen, handleFormSubmit, handleModalClose, isSubmitted, name, setName, email, setEmail}) => {
     if (!isModalOpen) return null;
 
     return (
@@ -27,6 +29,15 @@ interface EarlyAccessModalProps {
                 <p className="text-gray-400 mb-6">Join the waitlist to be one of the first to try Briefreel.</p>
                 <form onSubmit={handleFormSubmit}>
                   <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your name"
+                    className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+
+                  <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -34,6 +45,7 @@ interface EarlyAccessModalProps {
                     className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
+
                   <button
                     type="submit"
                     className="w-full bg-white text-black font-bold py-3 px-4 rounded-lg hover:bg-gray-200 transition duration-300"
@@ -45,8 +57,8 @@ interface EarlyAccessModalProps {
             ) : (
               <div>
                 <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">You`&apos;`re on the list!</h3>
-                <p className="text-gray-400 mb-6">Thanks for signing up! We`&apos;`ll let you know as soon as Briefreel is ready for you.</p>
+                <h3 className="text-2xl font-bold mb-2">You&apos;re on the list!</h3>
+                <p className="text-gray-400 mb-6">Thanks for signing up! We&apos;ll let you know as soon as Briefreel is ready for you.</p>
                 <button
                   onClick={handleModalClose}
                   className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
